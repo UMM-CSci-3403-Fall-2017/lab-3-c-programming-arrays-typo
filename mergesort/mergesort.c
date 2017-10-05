@@ -4,7 +4,10 @@
 #include <stdbool.h>
 #include "mergesort.h"
 
-void mergeRanges(int* values, int startIndex, int midPoint, int endIndex); 
+//Took this from Nic's implementation
+// The link: https://gist.github.umn.edu/mcphee/83e9818b21ef9cb3cde4
+
+void mergeRanges(int* values, int startIndex, int midPoint, int endIndex);
 int needsSorting(int rangeSize);
 void mergesortRange(int* values, int startIndex, int endIndex);
 
@@ -27,7 +30,7 @@ int rangeSize = endIndex - startIndex;
 void mergeRanges(int* values, int startIndex, int midPoint, int endIndex){
     int rangeSize = endIndex - startIndex;
     int* destination;
-    destination = (int*)calloc(rangeSize, sizeof(int));
+    destination = (int*)calloc(rangeSize, sizeof(int)); //Changed it so we can allocate memory from heap
     int firstIndex = startIndex;
     int secondIndex = midPoint;
     int copyIndex = 0;
@@ -61,4 +64,3 @@ void mergeRanges(int* values, int startIndex, int midPoint, int endIndex){
  int needsSorting(int rangeSize){
   return rangeSize >=2;
  }
-
